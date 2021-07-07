@@ -1,0 +1,126 @@
+projeto-hotel{
+
+	Avaliação:
+	
+	O sistema deve ser feito em grupos de no máximo 2 alunos.
+	Usar as tecnologias e plataformas vistas em sala de aula
+	Entregas:  
+		Módulo 1) 21/06/2021. 
+		Módulo 2) até o final do semestre
+
+
+	Pretende-se desenvolver um software para apoiar a gestão do relacionamento
+	com clientes em hoteis, denominado Hotel IFBA. Forneça serviço de alojamento e possivelmente
+	alimentação;
+	
+	Para o funcionamento do sistema, será necessário dispor de um servidor Web conectado à Internet
+	e uma base de dados relacionais;
+	
+	Por razões de segurança, o sistema deve estar dividido fisicamente em dois sub-sistemas:
+	
+		subsistema para empregados (recepcionistas e gerente), acessível apenas na rede interna
+		(aplicação de gestão); (Back-end em Django);
+		sub-sistema para clientes efetivos e potenciais, acessível pela Internet
+		(site Web, front-end em React JS);
+		
+		1.0: APLICAÇÃO DE GESTÃO
+			Do ponto de vista lógico, a aplicação de gestão pode considerar-se subdividida nos 
+			módulos (grupos de funcionalidades) descritos a seguir.
+			
+		1.1: CONFIGURAÇÃO
+			Permitir gerenciar as seguintes operações de configuração pela gestão do hotel:
+			
+			-> Registar e atualizar as características gerais da empresa (nome, endereço, telefone,
+			categoria e e-mail).
+			
+			-> Registar e atualizar os serviços oferecidos (alojamento e almoço, só alojamento, etc.) 
+			e respectivo preço diário em função da época do ano e do número de pessoas.
+			
+			-> Registar e atualizar os quartos existentes, com o número e capacidade de cada quarto.
+			
+			-> Registar os empregados com acesso ao sistema, com o nome, login, password e função
+			(recepcionista ou gerente).
+			
+		1.2: REGISTRO DE CLIENTES
+			Permitir para a gestão qualquer recepcionista da empresa da hotelaria realizar as transações:
+			
+			-> Registar um novo cliente. O usuário (recepcionista) deve indicar o nome, nacionalidade, data
+			de nascimento, endereço, telefone, número e data de bilhete de identidade ou passaporte e e-mail.
+			O sistema deve atribuir automaticamente um número de cliente sequencial. No caso de clientes com
+			e-mail, o sistema deve gerar automaticamente um password que é enviado por correio eletrônico para
+			o cliente.
+			
+			-> Alterar os dados de um cliente (endereço, telefone e e-mail).
+			
+			-> OBSERVAÇÃO: O GERENTE TEM SEMPRE ACESSO A TODAS AS OPERAÇÕES A QUE O RECEPCIONISTA TEM ACESSO.
+			
+		1.3: RESERVAS
+			A aplicação de gestão deve permitir a qualquer recepcionista da empresa efetuar as transações:
+			
+			-> Registar uma reserva de um cliente. O usuário (recepcionista) deve indicar o número de pessoas, 
+			data de entrada e saída prevista, serviço pretendido (alojamento e almoço, só alojamento, etc.) e
+			dados do cartão de crédito. O sistema deve atribuir automaticamente um número de reserva. O sistema
+			não deve aceitar reservas que não podem ser satisfeitas.
+			
+			-> Alterar ou anular uma reserva.
+		
+		1.4: ESTADIAS
+			A aplicação de gestão deve permitir a qualquer recepcionista da empresa de hotelaria efetuar as 
+			seguintes transações:
+			
+			-> Registar a entrada (check-in) de um cliente, com ou sem reserva prévia. O usuário (recepcionista)
+			deve indicar o número de pessoas, número(s) do(s) quarto(s) atribuído(s), data de saída prevista, serviço
+			fornecido (alojamento e almoço, só alojamento,  etc.) e dados de cartão de crédito.  O sistema deve 
+			atribuir automaticamente um número de estadia. O sistema não deve permitir atribuir quartos que estão
+			ocupados, ou que impossibilitem a satisfação de reservas já assumidas.
+			
+			-> Alterar a data de saída prevista (correspondente a uma estadia já iniciada).
+			
+			-> Efetuar mudanças de quarto (correspondentes a estadias já iniciadas).
+			
+			-> Registar a saída (check-out) de um cliente, sendo a fatura emitida automaticamente pelo sistema.
+		
+		1.5: CONSULTA DE OCUPAÇÃO
+			A aplicação de gestão deve permitir a qualquer recepcionista da empresa de hotelaria efetuar
+			as seguintes consultas:
+			
+			-> Consultar o mapa de ocupação do hotel numa determinada data ou intervalo de datas (incluindo reservas
+			pendentes), com possibilidade de destacar detalhes de estadias, reservas e clientes.
+			
+		1.6: ESTATISTICAS			
+			Adicionalmente, o gerente deve poder obter as seguintes estatísticas :
+			
+			-> Taxa de ocupação ao longo de tempo, em número de quartos vendidos em relação ao número total de quartos
+			e em número de pessoas alojadas em relação à capacidade máxima.
+			
+			-> Evolução do faturamento ao longo do tempo.
+			
+			-> Distribuição das vendas por nacionalidade.
+			
+			-> Clientes com maior gasto.
+
+		2.0: SITE WEB			
+			Do ponto de vista lógico, o site Web, pode considerar-se subdividido nas duas áreas a seguir descritas.
+			
+		2.1: AREA PARA CLIENTES POTENCIAIS - PUBLICO
+			Através do site Web, qualquer pessoa pode:
+
+			-> Consultar as características gerais, serviços oferecidos, preços e disponibilidades.
+			
+			-> Registar-se como cliente.
+		
+		2.2: AREA PARA CLIENTES REGISTRADOS
+			Uma vez identificados (através do número de cliente e password), os clientes registados devem
+			ter acesso adicionalmente às seguintes operações:
+			
+			-> Alterar dados pessoais.
+			
+			-> Efetuar uma reserva, com indicação de dados de cartão de crédito.
+			
+			-> Consultar as reservas pendentes.
+			
+			-> Alterar ou anular uma reserva.  
+		
+			
+			
+}		

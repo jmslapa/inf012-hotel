@@ -1,0 +1,55 @@
+version: '3'
+services:
+    nginx:
+        image: nginx:1.19
+        container_name: nginx
+        restart: always
+        volumes:
+            - .:/var/www
+            - .docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+            - .docker/nginx/conf:/etc/nginx/conf.d
+        ports:
+            - "8080:80"
+        networks:
+            - backend
+
+    php_fpm:
+        build: .docker/php/
+        container_name: php
+        restart: always
+        volumes:
+            - .:/var/www
+            - .docker/php/php7.ini:/usr/local/etc/php/conf.d/php7.ini
+        networks:
+            - backend
+
+    mysql:
+        image: mysql:5.7
+        container_name: mysql
+        restart: always
+        ports:
+            - 3306:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: hotel
+        volumes:
+            - ./.docker/data/mysql:/var/lib/mysql
+        networks:
+            - backend
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:5
+        container_name: phpmyadmin
+        restart: always
+        depends_on: 
+            - mysql
+        environment:
+            - PMA_ARBITRARY=1
+        ports:
+            - 8081:80
+        networks:
+            - backend
+
+networks:
+    backend:
+        driver: bridge
